@@ -1,0 +1,4 @@
+import './globals.css';import { Cormorant_Garamond, Inter } from 'next/font/google';import { SiteHeader } from '@/components/site-header';import { SiteFooter } from '@/components/site-footer';import { SmoothScroll } from '@/components/smooth-scroll';import type { Metadata } from 'next';
+const serif=Cormorant_Garamond({subsets:['latin'],weight:['400','500','600'],variable:'--font-serif'});const sans=Inter({subsets:['latin'],variable:'--font-sans'});
+export const metadata: Metadata={title:'Zach Shev | Portrait Painter',description:'Heirloom portraiture designed to last for generations.',openGraph:{title:'Zach Shev | Portrait Painter',description:'Fine art portrait painter.',type:'website'}};
+export default function RootLayout({children}:{children:React.ReactNode}){return <html lang='en' className={`${serif.variable} ${sans.variable}`}><body><SmoothScroll/><SiteHeader/><main className='pt-28'>{children}</main><SiteFooter/></body></html>}

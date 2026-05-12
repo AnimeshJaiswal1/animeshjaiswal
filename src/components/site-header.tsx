@@ -1,0 +1,3 @@
+'use client';
+import Link from 'next/link';import { nav } from '@/data/site';import { useEffect,useState } from 'react';
+export function SiteHeader(){const[s,setS]=useState(false);useEffect(()=>{const h=()=>setS(window.scrollY>20);window.addEventListener('scroll',h);return()=>window.removeEventListener('scroll',h)},[]);return <header className={`fixed top-0 z-50 w-full transition ${s?'bg-bg/80 backdrop-blur border-b border-black/10':''}`}><div className='container-x flex h-20 items-center justify-between'><Link href='/' className='serif text-3xl'>Zach Shev</Link><nav className='hidden gap-8 md:flex'>{nav.map(([l,h])=><Link key={h} href={h} className='text-sm uppercase tracking-[0.16em] text-secondary hover:text-text'>{l}</Link>)}</nav></div></header>}
